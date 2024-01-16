@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Day Grill</title>
+    <style>
+      /* Add your CSS styling here */
+      /* You may want to use a CSS framework like Bootstrap for responsiveness */
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Game Day Grill</h1>
+      <p>Good Food for Good Times!</p>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#online-ordering">Online Ordering</a></li>
+        <li><a href="#events">Special Events</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#reservation">Reservation</a></li>
+      </ul>
+    </nav>
+
+    <section id="menu">
+      <h2>Menu</h2>
+      <!-- Add your menu items here with prices -->
+      <div class="menu-item">
+        <h3>Burger</h3>
+        <p>Delicious burger with fries</p>
+        <p>$10.99</p>
+        <button onclick="addToCart('Burger', 10.99)">Add to Cart</button>
+      </div>
+      <!-- Add more menu items as needed -->
+    </section>
+
+    <section id="online-ordering">
+      <h2>Online Ordering</h2>
+      <p>
+        Place your order online and enjoy our delicious food from the comfort of
+        your home!
+      </p>
+      <div id="cart">
+        <!-- Display items added to the cart -->
+      </div>
+      <button onclick="checkout()">Checkout</button>
+    </section>
+
+    <section id="events">
+      <h2>Special Events</h2>
+      <p>Check out our upcoming special events and join us for a great time!</p>
+      <!-- Add special event listings here -->
+      <div class="event">
+        <h3>Live Music Night</h3>
+        <p>Join us for a night of live music and great food!</p>
+        <p>Date: January 30, 2024</p>
+      </div>
+      <!-- Add more events as needed -->
+    </section>
+
+    <section id="contact">
+      <h2>Contact Information</h2>
+      <p>Visit us at:</p>
+      <address>
+        Game Day Grill<br />
+        123 Main Street<br />
+        City, State ZIP<br />
+      </address>
+      <p>Email: info@gamedaygrill.com</p>
+      <p>Phone: (123) 456-7890</p>
+    </section>
+
+    <section id="reservation">
+      <h2>Reservation</h2>
+      <p>
+        Make a reservation to secure your spot for a fantastic dining
+        experience!
+      </p>
+      <form id="reservationForm" onsubmit="submitReservation(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+        <label for="date">Date:</label>
+        <input type="date" id="date" required />
+        <label for="time">Time:</label>
+        <input type="time" id="time" required />
+        <button type="submit">Submit Reservation</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Game Day Grill. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Add JavaScript for handling online ordering and reservation here
+      const cartItems = [];
+
+      function addToCart(item, price) {
+        cartItems.push({ item, price });
+        updateCart();
+      }
+
+      function updateCart() {
+        const cartContainer = document.getElementById("cart");
+        cartContainer.innerHTML = "<h3>Shopping Cart</h3>";
+
+        cartItems.forEach((item) => {
+          const itemDiv = document.createElement("div");
+          itemDiv.innerHTML = `<p>${item.item} - $${item.price}</p>`;
+          cartContainer.appendChild(itemDiv);
+        });
+      }
+
+      function checkout() {
+        // Implement checkout functionality, including payment processing
+        alert("Checkout functionality is not implemented in this example.");
+      }
+
+      function submitReservation(event) {
+        event.preventDefault();
+        // Implement reservation submission and confirmation
+        const name = document.getElementById("name").value;
+        const date = document.getElementById("date").value;
+        const time = document.getElementById("time").value;
+
+        alert(`Reservation confirmed for ${name} on ${date} at ${time}.`);
+      }
+    </script>
+  </body>
+</html>
